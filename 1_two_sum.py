@@ -12,21 +12,21 @@ class Solution:
 
         while l < r:
             temp = temp_nums[l] + temp_nums[r]
-            
+
             if temp == target:
                 try:
                     l = nums.index(temp_nums[l])
-                    r = nums.index(temp_nums[r], l+1, len(nums)) # if vlaue not find, will throw a value error
+                    r = nums.index(temp_nums[r], l + 1, len(nums))  # if vlaue not find, will throw a value error
                 except ValueError:
-                    r = nums.index(temp_nums[r], 0, l+1,)
-                
+                    r = nums.index(temp_nums[r], 0, l + 1, )
+
                 return [l, r]
-            
+
             if temp < target:
                 l = l + 1
             else:
                 r = r - 1
-        
+
         return []
 
     def twoSumHashMap(self, nums: List[int], target: int) -> List[int]:
@@ -40,7 +40,6 @@ class Solution:
                 return [seen[req_value], i]
             seen[value] = i
 
-
     def twoSumHashMap1(self, nums: List[int], target: int) -> List[int]:
         """
         HashMaps Solution, complexity O(n)
@@ -48,8 +47,8 @@ class Solution:
         for i, value in enumerate(nums):
             rem = target - value
 
-            if rem in nums[i+1:]:
-                return [i, nums[i+1:].index(rem) + (i+1)]       
+            if rem in nums[i + 1:]:
+                return [i, nums[i + 1:].index(rem) + (i + 1)]
 
 
 if __name__ == '__main__':
