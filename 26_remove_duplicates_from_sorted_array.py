@@ -24,7 +24,7 @@ class Solution:
     
     def remove_duplicates_set(self, nums: List[int]) -> int:
         nums[:] = list(set(nums))
-        
+        nums.sort()
         return len(nums)
 
 
